@@ -6,7 +6,7 @@ class Reply extends Model {}
 
 Reply.init(
   {
-    id: {
+   /* id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -18,11 +18,11 @@ Reply.init(
         key: 'name',
         unique: false
     },
-    },
+    },*/
     content: {
         type: DataTypes.STRING,
     },
-    date_created: {
+   /* date_created: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
@@ -34,14 +34,15 @@ Reply.init(
           key: 'id',
           unique: false
         }
-    }
+    },*/
+    
   },
   {
     sequelize,
-    timestamps: false,
+    /*timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'reply',
+    modelName: 'reply',*/
   }
 );
 

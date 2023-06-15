@@ -6,12 +6,7 @@ const checkAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     const postData = await Posts.findAll({
-      include: [{
-        model: User,
-        attributes: { exclude: ['password', 'email'] },
-    }],
-      attributes: { exclude: ['content'] },
-      order: [['name', 'ASC']],
+      include: [User],
     });
 
     const posts = postData.map((project) => project.get({ plain: true }));

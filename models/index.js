@@ -1,36 +1,38 @@
 const User = require('./user');
 const Posts = require('./posts');
-const Replys = require('./replys');
-const PostReplys = require('./replys');
+const Reply = require('./replys');
+//const PostReplys = require('./replys');
 const { post } = require('../controllers');
 
 
 Posts.belongsTo(User,{
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE',
   });
 
-  Replys.belongsTo(User,{
-    foreignKey: 'user_id'
+  Reply.belongsTo(User,{
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
   });
-  User.hasMany(Posts,{
+  Posts.hasMany(Reply,{
+    foreignKey: 'post_id',
+    onDelete: 'CASCADE',
+  });
+  /*User.hasMany(Reply,{
     foreignKey: 'user_id',
     onDelete: 'CASCADE',
   });
-  User.hasMany(Replys,{
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE',
-  });
-  Posts.hasMany(Replys,{
+  Posts.hasMany(Reply,{
     through: {
       model: PostReplys,
       unique:false
     },
   });
-  Replys.belongsTo(Posts,{
+  Reply.belongsTo(Posts,{
     through: {
         model: PostReplys,
         unique:false
       },
-  });
+  });*/
 
-module.exports = { User, Posts, Replys, PostReplys };
+module.exports = { User, Posts, Reply, /*PostReplys*/ };

@@ -6,18 +6,16 @@ class Posts extends Model {}
 
 Posts.init(
   {
-    id: {
+   /* id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
+    },*/
+    name: DataTypes.STRING,
+    
+    content: DataTypes.STRING,
     },
-    name: {
-      type: DataTypes.STRING,
-    },
-    content: {
-        type: DataTypes.STRING,
-    },
-    date_created: {
+   /* date_created: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
@@ -30,13 +28,13 @@ Posts.init(
           unique: false
         }
     }
-  },
+  },*/
   {
     sequelize,
-    timestamps: false,
+   /* timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'post',
+    modelName: 'post',*/
   }
 );
 
